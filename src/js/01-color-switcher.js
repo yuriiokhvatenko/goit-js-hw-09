@@ -1,35 +1,25 @@
-const startBrn = document.querySelector('[data-start]');
-console.log(startBrn);
-const stopBtn = document.querySelector('[data-stop');
-console.log(stopBtn);
+const startBtn = document.querySelector(`[data-start]`);
+const stopBtn = document.querySelector(`[data-stop`);
 const body = document.querySelector(`body`);
-console.dir(body);
 
 let colorChanger = null;
 
-// body.style.backgroundColor = getRandomHexColor();
-
-// startBrn.classList.toggle(`is-active`);
-
-startBrn.addEventListener('click', backgoundColorChangeStartBtnHandler);
-// startBrn.addEventListener('click', () => {
-//     startBrn.classList.add(`is-active`);
-// })
-
+startBtn.addEventListener('click', backgoundColorChangeStartBtnHandler);
 stopBtn.addEventListener('click', backgoundColorChangeStopBtnHandler);
 
+// Функція зміни кольору за інтервалом
 function backgoundColorChangeStartBtnHandler() {
-    startBrn.classList.toggle(`is-active`);
     colorChanger = setInterval(() => {
         body.style.backgroundColor = getRandomHexColor();
     }, 1000)
-    
+    startBtn.setAttribute(`disabled`, `disabled`);
 }
-
+// Функція зупинки зміни кольору
 function backgoundColorChangeStopBtnHandler() {
     clearInterval(colorChanger);
+    startBtn.removeAttribute('disabled');
 }
-
+// рандомайзер кольору
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
