@@ -2,9 +2,9 @@ import Notiflix from "notiflix";
 
 const refs = {
   form: document.querySelector(`form`),
-  firstDealy: document.querySelector(`input[name="delay"]`),
-  delayStep: document.querySelector(`input[name="step"]`),
-  amount: document.querySelector(`input[name="amount"]`),
+  firstDealy: document.querySelector(`[name="delay"]`),
+  delayStep: document.querySelector(`[name="step"]`),
+  amount: document.querySelector(`[name="amount"]`),
   btn : document.querySelector(`button`)
 }
 
