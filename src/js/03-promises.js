@@ -38,22 +38,3 @@ const createPromise = (position, delay) => new Promise((resolve, reject) => {
     }
   }, delay)
 });
-
-function formSubmit(evt) {
-  evt.preventDefault()
-
-  let delay = Number(refs.firstDealy.value)
-  console.log(delay);
-
-  for(let i = 1; i <= refs.amount.value; i += 1) {
-    createPromise(i , delay)
-    .then(({ position, delay }) => {
-      Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`)
-    })
-    .catch(({ position, delay }) => {
-      Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`)
-    });
-  
-    delay += Number(refs.delayStep.value)
-  }
-}
